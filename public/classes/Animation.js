@@ -18,6 +18,7 @@ export class Animation {
         this.frameTimer = 0;
     }
 
+    // Animation on loop
     update() {
         if (!this.loaded) return;
 
@@ -28,10 +29,30 @@ export class Animation {
         }
     }
 
-    draw(ctx, x, y) {
+    // Non-loop animation (use in Door.js)
+    // Direction (+1) open (-1) close
+    advanceFrame(direction=1) {
         if (!this.loaded) return;
 
-        console.log("coin drawn")
+        this.frameTimer++;
+        if (this.frameTimer > this.frameDelay) {
+            this.currentFrame += direction
+
+            if (this.currentFrame >= this.frameCount) {
+                this.currentFrame = this.frameCount - 1; // Stay CLOSED
+                console.log("closing")
+            } else if (this.currentFrame < 0) {
+                this.currentFrame = 0; // Stay OPEN
+                console.log("opening")
+            }
+
+            this.frameTimer = 0;
+        }
+    }
+
+    draw(ctx, x, y) {
+        if (!this.loaded) return;
+        
         ctx.drawImage(
             this.image,
             this.currentFrame * this.frameWidth, 0, // sx, sy

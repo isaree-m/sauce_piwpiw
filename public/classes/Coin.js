@@ -8,7 +8,7 @@ export class Coin {
 
         this.animation = new Animation(
             "./assets/sprites/gold_coin.jpg",
-            274,     // frameWidth
+            273,     // frameWidth
             505,     // frameHeight
             7,       // frameCount
             5        // frameDelay

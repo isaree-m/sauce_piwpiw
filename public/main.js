@@ -1,6 +1,6 @@
 import { Animation } from './classes/Animation.js';
 import { Coin } from './classes/Coin.js';
-
+import { Door } from './classes/Door.js';
 
 
 
@@ -15,6 +15,13 @@ const dummyPlayer = {
   x: 0, y: 0, width: 0, height: 0, score: 0
 };
 
+const secondDummyPlayer = {
+  x: 10, y: 0, width: 50, height: 50, score: 0
+}
+
+// create door
+const door1 = new Door(10, 5)
+
 function gameLoop() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -23,6 +30,8 @@ function gameLoop() {
     coin.draw(ctx);
   });
 
+  door1.update(dummyPlayer)
+  door1.draw(ctx)
   requestAnimationFrame(gameLoop);
 }
 
