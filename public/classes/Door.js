@@ -24,8 +24,10 @@ export class Door {
         )
 
         if (this.isPlayerOnDoor) {
+            // closed door -> stay open
             this.animation.advanceFrame(-1);
         } else {
+            // opened door -> stay close
             this.animation.advanceFrame(+1);
         }
     }

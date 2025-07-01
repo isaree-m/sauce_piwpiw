@@ -1,5 +1,5 @@
 export class Animation {
-    constructor(imageSrc, frameWidth, frameHeight, frameCount, frameDelay) {
+    constructor(imageSrc, frameWidth, frameHeight, frameCount, frameDelay, scale=1) {
         this.image = new Image();
         this.image.src = imageSrc;
 
@@ -16,6 +16,9 @@ export class Animation {
 
         this.currentFrame = 0;
         this.frameTimer = 0;
+
+        this.scaledWidth = frameWidth * scale;
+        this.scaledHeight = frameHeight * scale;
     }
 
     // Animation on loop

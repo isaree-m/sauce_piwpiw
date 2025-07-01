@@ -8,8 +8,8 @@ export class Coin {
 
         this.animation = new Animation(
             "./assets/sprites/gold_coin.jpg",
-            273,     // frameWidth
-            505,     // frameHeight
+            27.3,     // frameWidth
+            51,     // frameHeight
             7,       // frameCount
             5        // frameDelay
         );
@@ -36,7 +36,7 @@ export class Coin {
 
     draw(ctx) {
         if (!this.collected) {
-        this.animation.draw(ctx, this.x, this.y);
+            this.animation.draw(ctx, this.x, this.y);
         }
     }
 }
