@@ -43,13 +43,18 @@ class GameLevel {
       }
     }
   
-    CalculateStars() {
+   CalculateStars() {
       let stars = 1;
-      if (this.TimeCleared < 60 && this.CoinsCollected === this.CoinsPresent) {
-        stars = 3;
-      } else if (this.CoinsCollected >= this.CoinsPresent / 2) {
-        stars = 2;
+      if (this.CoinsCollected === this.CoinsPresent){
+        if (this.TimeCleared < 60) {
+          stars = 1;
+        } else if (this.TimeCleared < 45) {
+          stars = 2;
+        } else if (this.TimeCleared < 30) {
+          stars = 3;
+        }
       }
+      
       return stars;
     }
   
